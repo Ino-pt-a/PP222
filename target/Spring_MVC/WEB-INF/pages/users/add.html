@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add User</title>
+</head>
+<body style="background-color: bisque;">
+<h1 style="color: black; text-align: center;">Add User</h1>
+<form action="/spring_mvc_war/users/add" style="color: black; text-align: center;" method="post">
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" id="name" name="name" required>
+    <br style="color: antiquewhite">
+    <label for="email">Email:</label>
+    <br>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="lastName">Last Name:</label>
+    <br>
+    <input type="text" id="lastName" name="lastName" required>
+    <br>
+    <br>
+    <button type="submit">Add User</button>
+</form>
+<br>
+<a href="/spring_mvc_war/users">Back to Users List</a>
+</body>
+</html>

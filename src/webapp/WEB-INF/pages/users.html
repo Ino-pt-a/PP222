@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Users </title>
+</head>
+<body style="background-color: burlywood;">
+<h1 style="color: black; text-align: center;">Список пользователей</h1>
+
+<br><br>
+
+<table border="1" style="height: 274px; margin-left: auto; margin-right: auto; width: 421px;">
+  <tbody>
+  <tr style="height: 35px;">
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>E-mail</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.getFirstName()}">User name</td>
+    <td th:text="${user.getLastName()}">User Last Name</td>
+    <td th:text="${user.getEmail()}">User email</td>
+  </tr>
+  </tbody>
+
+</table>
+
+
+</body>
+</html>
