@@ -1,6 +1,9 @@
 package web.model;
 
+import com.sun.istack.NotNull;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "user")
@@ -11,10 +14,16 @@ public class User {
     private Long id;
 
     @Column(name = "name")
+    @NotNull
+    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s\\-]+$")
     private String name;
     @Column(name = "email")
+    @Email
+    @NotNull
     private String email;
     @Column(name = "last_name")
+    @NotNull
+    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s\\-]+$")
     private String lastName;
 
     public User(String name, String email, String lastName) {
