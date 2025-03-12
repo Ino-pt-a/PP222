@@ -24,15 +24,13 @@
         <td th:text="${user.email}"></td>
         <td>
             <!-- Кнопка Edit -->
-            <a th:href="@{/users/edit/{id}(id=${user.id})}">
+            <a th:href="@{/users/edit(id=${user.id})}">
                 <button style="background-color: antiquewhite">Edit</button>
             </a>
         <td>
-            <!-- Кнопка Edit -->
-            <a th:href="@{/users/delete/{id}(id=${user.id})}">
+            <a th:href="@{/users/delete(id=${user.id})}">
                 <button style="background-color: antiquewhite;">Delete</button>
             </a>
-        </td>
         </td>
     </tr>
     </tbody>
