@@ -1,8 +1,8 @@
 package web.model;
 
-import com.sun.istack.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
@@ -14,16 +14,18 @@ public class User {
     private Long id;
 
     @Column(name = "name")
-    @NotNull
-    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s\\-]+$")
+    @NotNull(message = "Name field cannot be empty")
+    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s]+$", message = "The name must contain only letters.")
     private String name;
+
     @Column(name = "email")
-    @Email
-    @NotNull
+    @Email(message = "Incorrect email")
+    @NotNull(message = "Email field cannot be empty")
     private String email;
+
     @Column(name = "last_name")
-    @NotNull
-    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s\\-]+$")
+    @NotNull(message = "Last field cannot be empty")
+    @Pattern(regexp = "^[A-Za-zА-Яа-я\\s]+$")
     private String lastName;
 
     public User(String name, String email, String lastName) {

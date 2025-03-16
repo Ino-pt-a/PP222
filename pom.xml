@@ -93,7 +93,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>Spring_MVC</finalName>
+        <finalName>Users</finalName>
     </build>
 
 </project>

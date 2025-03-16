@@ -5,24 +5,30 @@
 </head>
 <body style="background-color: antiquewhite;">
 <h1 style="color: black; text-align: center;">Edit User</h1>
-<form th:action="@{/users/edit}" style="color: black; text-align: center;" method="post">
-  <input type="hidden" name="id" th:value="${user.id}">
+<form th:action="@{/users/edit}" style="color: black; text-align: center;" method="post" th:object="${user}">
+  <input type="hidden" th:field="*{id}">
   <label for="name">Name:</label>
   <br>
-  <input type="text" id="name" name="name" th:value="${user.name}" required>
+  <input type="text" id="name" th:field="*{name}" required>
+  <br>
+  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red; display: block">The name must contain only letters.</span>
   <br>
   <label for="lastName">Last Name:</label>
   <br>
-  <input type="text" id="lastName" name="lastName" th:value="${user.lastName}" required>
+  <input type="text" id="lastName" th:field="*{lastName}" required>
+  <br>
+  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red;">Last name must contain only letters.</span>
   <br>
   <label for="email">Email:</label>
   <br>
-  <input type="email" id="email" name="email" th:value="${user.email}" required>
+  <input type="email" id="email" th:field="*{email}" required>
+  <br>
+  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;">incorrect email</span>
   <br>
   <br>
   <button type="submit">Save Changes</button>
 </form>
 <br>
-<a href="/spring_mvc_war/users">Back to Users List</a>
+<a th:href="@{/users}">Back to Users List</a>
 </body>
 </html>

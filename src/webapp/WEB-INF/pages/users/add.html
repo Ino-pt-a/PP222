@@ -5,23 +5,29 @@
 </head>
 <body style="background-color: bisque;">
 <h1 style="color: black; text-align: center;">Add User</h1>
-<form action="/spring_mvc_war/users/add" style="color: black; text-align: center;" method="post">
+<form th:action="@{/users/add}" style="color: black; text-align: center;" method="post" th:object="${user}">
     <label for="name">Name:</label>
     <br>
-    <input type="text" id="name" name="name" required>
-    <br style="color: antiquewhite">
-    <label for="email">Email:</label>
+    <input type="text" id="name" th:field="*{name}" required>
     <br>
-    <input type="email" id="email" name="email" required>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;">incorrect name</span>
     <br>
     <label for="lastName">Last Name:</label>
     <br>
-    <input type="text" id="lastName" name="lastName" required>
+    <input type="text" id="lastName" th:field="*{lastName}" required>
+    <br>
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red;">incorrect name</span>
+    <br>
+    <label for="email">Email:</label>
+    <br>
+    <input type="email" id="email" th:field="*{email}" required>
+    <br>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;">incorrect email</span>
     <br>
     <br>
     <button type="submit">Add User</button>
 </form>
 <br>
-<a href="/spring_mvc_war/users">Back to Users List</a>
+<a th:href="@{/users}">Back to Users List</a>
 </body>
 </html>
